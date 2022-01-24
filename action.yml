@@ -109,7 +109,7 @@ runs:
     - name: Setting up sparse checkout
       run: |
         echo "::group::Setting up sparse checkout"
-        $GIT sparse-checkout init --cone
+        $GIT sparse-checkout init --cone --sparse-index
         $GIT sparse-checkout set $PATTERNS
         echo "::endgroup::"
       env:
