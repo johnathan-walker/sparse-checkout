@@ -128,7 +128,8 @@ runs:
           fi
         fi
 
-        $GIT -c protocol.version=2 fetch --no-tags --prune --progress --depth=1 origin +${REF}:refs/remotes/origin/${REF}
+        $GIT -c protocol.version=2 fetch --no-tags --prune --progress 
+        # $GIT -c protocol.version=2 fetch --no-tags --prune --progress --depth=1 origin +${REF}:refs/remotes/origin/${REF}
         echo "::endgroup::"
       env:
         REF: ${{ inputs.ref }}
@@ -150,7 +151,7 @@ runs:
           fi
         fi
         echo $REF
-        $GIT pull $REF
+        $GIT pull origin $REF
         echo "::endgroup::"
       env:
         REF: ${{ inputs.ref }}
